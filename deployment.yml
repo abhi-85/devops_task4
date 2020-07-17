@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webpage-deploy
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      env: production
+  template:
+    metadata: 
+        name: web-pod
+        labels:
+          env: production
+    spec:
+      containers:
+        - name: "web-container"
+          image: "abhi8585/jenkins-httpd:v1" 
